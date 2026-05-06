@@ -54,6 +54,13 @@ function handleSubmit(e) {
 }
 
 // Animate sections on scroll
+const animEls = document.querySelectorAll('.cat-card, .review-card, .pricing-card, .occ-card');
+animEls.forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+});
+
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -61,11 +68,9 @@ const observer = new IntersectionObserver(entries => {
       entry.target.style.transform = 'translateY(0)';
     }
   });
-}, { threshold: 0.1 });
+}, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
 
-document.querySelectorAll('.cat-card, .review-card, .pricing-card, .occ-card').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-  observer.observe(el);
-});
+// Small delay so DOM is settled, then observe
+setTimeout(() => {
+  animEls.forEach(el => observer.observe(el));
+}, 120);
