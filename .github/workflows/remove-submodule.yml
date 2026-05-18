@@ -1,0 +1,28 @@
+name: Remove CRM Submodule
+on: [push, workflow_dispatch]
+jobs:
+  remove-submodule:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: false
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+      - name: Remove submodule gitlink
+        run: |
+          if [ -d "crm" ] || [ -f "crm" ] || git ls-files --error-unmatch crm >/dev/null 2>&1; then
+            git rm -f crm
+          fi
+          
+      - name: Commit and Push
+        run: |
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Remove CRM submodule gitlink entry" && git push origin main)
