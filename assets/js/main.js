@@ -90,3 +90,35 @@ const observer = new IntersectionObserver(entries => {
 setTimeout(() => {
   animEls.forEach(el => observer.observe(el));
 }, 120);
+
+// Cookie Consent Banner
+document.addEventListener("DOMContentLoaded", () => {
+  if (!localStorage.getItem('cookieConsent')) {
+    const banner = document.createElement('div');
+    banner.id = 'cookie-consent-banner';
+    banner.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:var(--green-dark);color:white;padding:1rem;text-align:center;z-index:9999;box-shadow:0 -2px 10px rgba(0,0,0,0.2);font-size:0.9rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;';
+    
+    const mediaQuery = window.matchMedia("(min-width: 600px)");
+    if (mediaQuery.matches) {
+      banner.style.flexDirection = 'row';
+    }
+    
+    banner.innerHTML = `
+      <p style="margin:0;">We use cookies to improve your experience and analyze site traffic. By continuing to use our site, you agree to our <a href="/cookie-policy.html" style="color:var(--gold-light);text-decoration:underline;">Cookie Policy</a> and <a href="/privacy-policy.html" style="color:var(--gold-light);text-decoration:underline;">Privacy Policy</a>.</p>
+      <div style="display:flex;gap:10px;">
+        <button id="accept-cookies" style="background:var(--gold-dark);border:none;padding:8px 16px;border-radius:4px;color:white;font-weight:bold;cursor:pointer;transition:opacity 0.2s;">Accept All</button>
+      </div>
+    `;
+    
+    document.body.appendChild(banner);
+    
+    const acceptBtn = document.getElementById('accept-cookies');
+    acceptBtn.addEventListener('mouseover', () => acceptBtn.style.opacity = '0.9');
+    acceptBtn.addEventListener('mouseout', () => acceptBtn.style.opacity = '1');
+    acceptBtn.addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'true');
+      banner.remove();
+    });
+  }
+});
+
