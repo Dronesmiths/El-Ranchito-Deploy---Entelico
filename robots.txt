@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://elranchitogrowers.com/sitemap.xml
