@@ -60,18 +60,39 @@
 
     .schema-section { background: var(--cream); padding: 3rem 2rem; }
   </style>
-  <script type="application/ld+json">
+    <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Florist",
     "name": "Flowers El Ranchito",
-    "description": "Family-owned florist serving Van Nuys and the San Fernando Valley for over 40 years.",
-    "address": { "@type": "PostalAddress", "streetAddress": "10648 1/2 Sepulveda Blvd", "addressLocality": "Mission Hills", "addressRegion": "CA", "postalCode": "91345" },
+    "image": "https://elranchitogrowers.com/assets/img/hero.webp",
+    "url": "https://elranchitogrowers.com",
     "telephone": "+18186127515",
-    "openingHours": "Mo-Su 07:00-18:00",
-    "url": "https://elranchitogrowers.com/locations/van-nuys.html",
-    "areaServed": { "@type": "City", "name": "Van Nuys" },
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.6", "reviewCount": "120" }
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "10648 1/2 Sepulveda Blvd",
+      "addressLocality": "Mission Hills",
+      "addressRegion": "CA",
+      "postalCode": "91345"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 34.2646696,
+      "longitude": -118.4682055
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Mission Hills" },
+      { "@type": "City", "name": "San Fernando Valley" },
+      { "@type": "City", "name": "Canoga Park" },
+      { "@type": "City", "name": "Burbank" },
+      { "@type": "City", "name": "Los Angeles" }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.6",
+      "reviewCount": "120"
+    }
   }
   </script>
 
