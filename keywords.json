@@ -1,0 +1,42 @@
+{
+  "business": "Flowers El Ranchito",
+  "location": "Mission Hills, CA",
+  "base_categories": [
+    "Flower market",
+    "Florist",
+    "Flower delivery",
+    "Floral designer"
+  ],
+  "services": [
+    "Custom Bouquets",
+    "Wedding Flowers",
+    "Funeral Arrangements",
+    "Quinceañera Flowers",
+    "Corporate Floral Design",
+    "Same Day Flower Delivery",
+    "Event Floral Decorations",
+    "Valentine's Day Flowers",
+    "Mother's Day Flowers",
+    "Anniversary Flowers"
+  ],
+  "locations": [
+    "Mission Hills",
+    "San Fernando",
+    "Sylmar",
+    "Granada Hills",
+    "Pacoima",
+    "North Hills",
+    "Panorama City",
+    "Los Angeles"
+  ],
+  "modifiers": [
+    "affordable",
+    "best",
+    "near me",
+    "local",
+    "same day",
+    "fresh",
+    "custom",
+    "beautiful"
+  ]
+}
