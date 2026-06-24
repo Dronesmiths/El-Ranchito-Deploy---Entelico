@@ -37,7 +37,7 @@ document.querySelectorAll('.faq-q').forEach(btn => {
 });
 
 // Contact form — POST to CRM API
-const CRM_API = 'https://el-ranchito-crm.vercel.app/api/leads';
+const CRM_API = 'https://injin.entelico.com/api/leads';
 
 async function handleSubmit(e) {
   e.preventDefault();
